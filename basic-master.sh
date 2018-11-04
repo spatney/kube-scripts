@@ -8,6 +8,6 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" \
     > /etc/apt/sources.list.d/kubernetes.list
 apt-get update && apt-get install -y kubeadm kubelet kubectl
 
-sudo sed -e '/swap/ s/^#*/#/' -i /etc/fstab
+sed -e '/swap/ s/^#*/#/' -i /etc/fstab
 
 kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=192.168.1.0/16
